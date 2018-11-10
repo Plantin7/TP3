@@ -37,8 +37,7 @@ void wc(FILE* fichier, size_t size){
 
 	}
 	    str[len++]='\0';
-	printf("Il y a %d caracteres et %d mots et %d lignes dans cette phrase\n", nbCaracteres, nbWord, nbLignes);
-	printf("Je fais un test2");  
+	printf("Il y a %d caracteres et %d mots et %d lignes dans cette phrase\n", nbCaracteres, nbWord, nbLignes); 
  }
 
 int main(int argc, char *argv[]){;
