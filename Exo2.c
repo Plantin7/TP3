@@ -27,7 +27,7 @@ void wc(FILE* fichier, size_t size){
         }
         else {
             nbCaracteres++;
-            jaidejatrouveunefindemot = false;
+ 	           jaidejatrouveunefindemot = false;
         }
 
         str[len++]=ch;
