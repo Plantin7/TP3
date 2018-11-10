@@ -40,6 +40,10 @@ void wc(FILE* fichier, size_t size){
 	printf("Il y a %d caracteres et %d mots et %d lignes dans cette phrase\n", nbCaracteres, nbWord, nbLignes); 
  }
 
+ int countWord(char* ch){
+ 	return 2;
+ }
+
 int main(int argc, char *argv[]){;
 	printf("Taper votre chaine : \n");
 	wc(stdin,10);
