@@ -41,7 +41,7 @@ void wc(FILE* fichier, size_t size){
  }
 
  int countWord(char* ch){
- 	return 2;
+ 	return 3;
  }
 
 int main(int argc, char *argv[]){;
