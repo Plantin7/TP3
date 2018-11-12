@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include <string.h>
 
 char *inputString(FILE* fichier, size_t size){
 
@@ -22,59 +21,71 @@ char *inputString(FILE* fichier, size_t size){
 	return realloc(str, sizeof(char)*(size+=16)); 	
 }
 
-int caractersCounter(char ch, int nbCaracteres) {
-	if(ch == '\n' || ch == ' ' || ch == '\t' || ch == '\0'){
-		return nbCaracteres;
+int caractersCounter(char* ch) {
+	int i = 0;
+	int nbCaracteres = 0;
+
+	while (ch[i] != '\0'){
+		if(ch[i] == '\n' || ch[i] == ' ' || ch[i] == '\t' || ch[i] == '\0'){
+			nbCaracteres = nbCaracteres + 0;
+		}
+		else{
+			nbCaracteres++;
+		}
+		i++;
 	}
-	return ++nbCaracteres;
+	return nbCaracteres;
 }
 
-int wordsCounter (char ch, int nbWord){
+int wordsCounter (char* ch){
+	int i = 0;
+	int nbWord = 0;
 	bool jaidejatrouveunefindemot ;
-	if(ch == '\n' || ch == ' ' || ch == '\t' || ch == '\0'){
-		if(!jaidejatrouveunefindemot){
-			jaidejatrouveunefindemot = true;
-			nbWord++;
+	while (ch[i] != '\0'){
+		if(ch[i] == '\n' || ch[i] == ' ' || ch[i] == '\t' || ch[i] == '\0'){
+			if(!jaidejatrouveunefindemot){
+				jaidejatrouveunefindemot = true;
+				nbWord++;
+			}
 		}
-	}
-	else
-		jaidejatrouveunefindemot = false;
+		else {
+			jaidejatrouveunefindemot = false;
+		}
+		i++;
 
+	}
 	return nbWord;
 }
-int linesCounter (char ch, int nbLignes){
-	if(ch == '\n' || ch == ' ' || ch == '\t' || ch == '\0'){
-		if(ch == '\n') {
-			return ++nbLignes;
+int linesCounter (char* ch){
+	int i = 0;
+	int nbLignes = 0;
+	while (ch[i] != '\0'){
+		if(ch[i] == '\n') {
+			nbLignes++;
 		}
-
+		i++;
 	}
 	return nbLignes;
 }
 
 
-void wc(){
+void wc(char* ch){
 
-	char* ch;
 	int nbCaracteres = 0;
 	int nbWord = 0;
 	int nbLignes = 0;
 
-	int i = 0;
-	ch = inputString(stdin, 10);
+	nbLignes = linesCounter(ch);
+	nbCaracteres = caractersCounter(ch);
+	nbWord = wordsCounter(ch);
 
-	while (ch[i] != '\0'){
-		nbLignes = linesCounter(ch[i], nbLignes);
-		nbCaracteres = caractersCounter(ch[i], nbCaracteres);
-		nbWord = wordsCounter(ch[i], nbWord);
-		i++;
-	}
-
-	printf("Il y a %d caracteres et %d mots et %d lignes dans cette phrase\n", nbCaracteres, nbWord, nbLignes); 
+	printf("\n""Il y a %d caracteres et %d mots et %d lignes dans cette phrase\n", nbCaracteres, nbWord, nbLignes); 
 }
 
 int main(int argc, char *argv[]){
-	printf("Taper votre chaine : \n");
-	wc();
+	char* ch;
+	printf("Taper votre chaine");
+	ch = inputString(stdin, 10);
+	wc(ch);
 	return 0;
 }
