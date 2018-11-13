@@ -26,12 +26,7 @@ int caractersCounter(char* ch) {
 	int nbCaracteres = 0;
 
 	while (ch[i] != '\0'){
-		if(ch[i] == '\n' || ch[i] == ' ' || ch[i] == '\t' || ch[i] == '\0'){
-			nbCaracteres = nbCaracteres + 0;
-		}
-		else{
-			nbCaracteres++;
-		}
+		nbCaracteres++;
 		i++;
 	}
 	return nbCaracteres;
@@ -40,16 +35,16 @@ int caractersCounter(char* ch) {
 int wordsCounter (char* ch){
 	int i = 0;
 	int nbWord = 0;
-	bool jaidejatrouveunefindemot ;
+	bool isEndWord = true ;
 	while (ch[i] != '\0'){
 		if(ch[i] == '\n' || ch[i] == ' ' || ch[i] == '\t' || ch[i] == '\0'){
-			if(!jaidejatrouveunefindemot){
-				jaidejatrouveunefindemot = true;
+			if(!isEndWord){
+				isEndWord = true;
 				nbWord++;
 			}
 		}
 		else {
-			jaidejatrouveunefindemot = false;
+			isEndWord = false;
 		}
 		i++;
 
@@ -68,7 +63,6 @@ int linesCounter (char* ch){
 	return nbLignes;
 }
 
-
 void wc(char* ch){
 
 	int nbCaracteres = 0;
@@ -79,12 +73,12 @@ void wc(char* ch){
 	nbCaracteres = caractersCounter(ch);
 	nbWord = wordsCounter(ch);
 
-	printf("\n""Il y a %d caracteres et %d mots et %d lignes dans cette phrase\n", nbCaracteres, nbWord, nbLignes); 
+	printf("\n""Il y a %d caracteres et %d mots et %d lignes dans cette chaine\n", nbCaracteres, nbWord, nbLignes); 
 }
 
 int main(int argc, char *argv[]){
 	char* ch;
-	printf("Taper votre chaine");
+	printf("Votre chaine : \n");
 	ch = inputString(stdin, 10);
 	wc(ch);
 	return 0;
