@@ -81,5 +81,6 @@ int main(int argc, char *argv[]){
 	printf("Votre chaine : \n");
 	ch = inputString(stdin, 10);
 	wc(ch);
+	free(ch);
 	return 0;
 }
