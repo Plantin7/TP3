@@ -2,7 +2,7 @@ CC=gcc
 CFLAGS=-W -Wall -ansi
 
 
-all: Exo1 Exo1bis Exo2 Exo3 Exo4
+all: Exo1 Exo1bis Exo2 Exo3 Exo4 Exo5
 
 Exo1: Exo1.o
 	$(CC) -o Exo1 Exo1.o 
@@ -35,6 +35,12 @@ Exo4: Exo4.o
 Exo4.o: Exo4.c
 	$(CC) -o Exo4.o -c Exo4.c $(CFLAGS)
 
+Exo5: Exo5.o
+	$(CC) -o Exo5 Exo5.o 
+
+Exo5.o: Exo5.c
+	$(CC) -o Exo5.o -c Exo5.c $(CFLAGS)
+
 .PHONY: clean mrproper
 
 clean:
@@ -46,4 +52,5 @@ mrproper: clean
 	rm -rf Exo2
 	rm -rf Exo3
 	rm -rf Exo4
+	rm -rf Exo5
 			
