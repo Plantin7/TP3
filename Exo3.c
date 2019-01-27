@@ -12,19 +12,6 @@ int charToInt(char ch){
 	int c = 'a';
 	return (int)ch - c;
 }
-char* onlyA(char* ch){
-	int length= strlen(ch)-1;
-	int i = 0;
-	char* word = malloc(sizeof(*word));
-	while(ch[i] == '0'){
-		word[i] = intTochar(0);
-		i++;
-		if(i > length){
-			return word;
-		}
-	}
-	return word;
-}
 
 char* invString(char* ch){
 	char tmp;
@@ -98,6 +85,10 @@ bool isWordLowerCase(char* ch){
 }
 
 int main(int argc, char *argv[]){
+	if(argc != 2){
+		printf("Je demande UNE valeur ! \n");
+		return 1;
+	}
 
 	if(isWordLowerCase(argv[1])){ 
 		int ch;
@@ -109,10 +100,9 @@ int main(int argc, char *argv[]){
 	}
 	else if(isWordDigit(argv[1])){
 		char* word;
-		char* c = onlyA(argv[1]);
 		printf("Votre mot est numerique! Super je vais pouvoir travailler\n");
 		word = toBase26(atoi(argv[1]));
-		printf("Vote mot numerique '%s' en base26 est :\n%s%s\n",argv[1],c,word); 
+		printf("Vote mot numerique '%s' en base26 est :\n%s\n",argv[1],word); 
 		return 0;
 	}
 	

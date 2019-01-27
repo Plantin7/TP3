@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
+/*This fucntion inputString is not mine, here is the link */
+/*https://stackoverflow.com/questions/16870485/how-can-i-read-an-input-string-of-unknown-length*/
 char *inputString(FILE* fichier, size_t size){
 
 	char *str;
@@ -76,7 +78,7 @@ void wc(char* ch){
 	printf("\n""Il y a %d caracteres et %d mots et %d lignes dans cette chaine\n", nbCaracteres, nbWord, nbLignes); 
 }
 
-int main(int argc, char *argv[]){
+int main(){
 	char* ch;
 	printf("Votre chaine : \n");
 	ch = inputString(stdin, 10);

@@ -7,11 +7,11 @@ int puissance(int a, int n){
 	for(i = 1; i < n; i++){
 		b *= a;
 	}
-		return b ;
+	return b ;
 }
 
 int main(int argc, char *argv[]){
-	if(argc == 2 || argc > 3){
+	if(argc != 3){
 		printf("Je demande DEUX valeurs ! \n");
 		return 1;
 	}

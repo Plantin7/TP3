@@ -5,10 +5,11 @@
 
 void printArray(int* tab, int nbElements ){
 	int i;
+	printf("[");
 	for(i = 0; i < nbElements; i++){
-		printf("%d\n", tab[i]);
+		printf("%d, ", tab[i]);
 	}
-	printf("\n");
+	printf("]\n");
 
 }
 
@@ -52,7 +53,7 @@ int* randomArray(int* tab, int nbElements){
 }
 
 
-int main(int argc, char *argv[]){
+int main(){
 	int* tab_trie;
 	int* randomArrayElements;
 	int tab[10] ;
@@ -65,7 +66,7 @@ int main(int argc, char *argv[]){
 	
 	printf("---------- Avant tri ----------\n");
 	printArray(randomArrayElements, sizeTab);
-
+	printf("\n");
 	printf("---------- Apres tri ! ----------\n");
 	tab_trie = tri_a_Bulles(randomArrayElements, sizeTab);
 	printArray(tab_trie, sizeTab);
