@@ -35,17 +35,17 @@ int* tri_a_Bulles(int* tab, int nbElements){
 int* randomArray(int* tab, int nbElements){
 	int i;
 	int j;
-	srand(time(NULL)); /*retourne le nombre de seconde ecoulée depuis 1970. 
-	La valeur NULL indique a time qu'elle n'a rien d'autre a faire. 
-	La fonction srand initialise le generateur de nombre speudo aleatoire.
-	On passe a srand le nombre de seconde ecoulé depuis 1970, ainsi on obtient une suite different
-	a chaque execution de notre programme.
-	Sauf si on execute notre programme dans la meme seconde*/
+	srand(time(NULL)); /* returns the number of seconds since 1970.
+The NULL value indicates that it has nothing else to do.
+The srand function initializes the random speudo number generator.
+We go to srand the number of seconds since 1970, so we get a different sequel
+at each execution of our program.
+Unless we execute our program in the same second */
 
 	for(i=0; i < nbElements; i++){
-		j= rand()%100; /*RandGenere un nombre speudo aletoire entre 0 et 100
-		La valeur de rand depend de l'initialisation faite avec srand
-		rand() % (Max-min-1) nombre entre 0 et Max-min*/
+		j= rand()%100; /* Rand generates a speudo number between 0 and 100
+The value of rand depends on the initialization made with srand
+rand ()% (Max-min-1) number between 0 and Max-min */
 		tab[i] = j+1;
 	}
 	return tab;
